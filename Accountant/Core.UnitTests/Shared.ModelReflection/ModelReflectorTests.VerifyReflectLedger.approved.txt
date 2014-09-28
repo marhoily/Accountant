@@ -1,0 +1,104 @@
+﻿[
+  {
+    "HasKey": true,
+    "Name": "Account",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public string Name { get; set; }",
+        "Initializer": "Name = value.Name",
+        "Finalizer": "Name = Name"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public string Description { get; set; }",
+        "Initializer": "Description = value.Description",
+        "Finalizer": "Description = Description"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public AccountOptions Options { get; set; }",
+        "Initializer": "Options = value.Options",
+        "Finalizer": "Options = Options"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public AccountModifiers Modifier { get; set; }",
+        "Initializer": "Modifier = value.Modifier",
+        "Finalizer": "Modifier = Modifier"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public DateTime LastRevisionDate { get; set; }",
+        "Initializer": "LastRevisionDate = value.LastRevisionDate",
+        "Finalizer": "LastRevisionDate = LastRevisionDate"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string Parent { get; set; }",
+        "Initializer": "Parent = value.Parent == null ? null : value.Parent.Name",
+        "Finalizer": "Parent = Parent == null ? null : context.AccountByKey[Parent]"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string PrimaryCurrency { get; set; }",
+        "Initializer": "PrimaryCurrency = value.PrimaryCurrency == null ? null : value.PrimaryCurrency.Name",
+        "Finalizer": "PrimaryCurrency = PrimaryCurrency == null ? null : context.CurrencyByKey[PrimaryCurrency]"
+      }
+    ]
+  },
+  {
+    "HasKey": true,
+    "Name": "Currency",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public string Name { get; set; }",
+        "Initializer": "Name = value.Name",
+        "Finalizer": "Name = Name"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public string Symbol { get; set; }",
+        "Initializer": "Symbol = value.Symbol",
+        "Finalizer": "Symbol = Symbol"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public SymbolPosition SymbolPosition { get; set; }",
+        "Initializer": "SymbolPosition = value.SymbolPosition",
+        "Finalizer": "SymbolPosition = SymbolPosition"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public string Description { get; set; }",
+        "Initializer": "Description = value.Description",
+        "Finalizer": "Description = Description"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "Ledger",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public List<CurrencyData> Currencies { get; set; }",
+        "Initializer": "Currencies = value.Currencies.Select(x => new CurrencyData(x)).ToList()",
+        "Finalizer": "Currencies = new List<Currency>(Currencies.Select(x => x.Back(context)))"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public List<AccountData> Accounts { get; set; }",
+        "Initializer": "Accounts = value.Accounts.Select(x => new AccountData(x)).ToList()",
+        "Finalizer": "Accounts = new List<Account>(Accounts.Select(x => x.Back(context)))"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public List<BatchDescriptor> Batches { get; set; }",
+        "Initializer": "Batches = value.Batches",
+        "Finalizer": "Batches = Batches"
+      }
+    ]
+  }
+]

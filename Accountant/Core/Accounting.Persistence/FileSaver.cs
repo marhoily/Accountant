@@ -30,6 +30,6 @@ namespace NewModel.Accounting.Persistence
     public interface IDataWriter
     {
         string Write<T>(T data);
-        string FileExtension { get; set; }
+        string FileExtension { get; }
     }
 }

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D98769F1-18B1-447C-8B94-0C1340C56E94}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.UnitTests</RootNamespace>
+    <AssemblyName>Core.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ApprovalTests">
+      <HintPath>..\packages\ApprovalTests.3.0.7\lib\net40\ApprovalTests.dll</HintPath>
+    </Reference>
+    <Reference Include="ApprovalUtilities">
+      <HintPath>..\packages\ApprovalUtilities.3.0.7\lib\net35\ApprovalUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.24.0\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core">
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared.FileSystem\DirectoryImplTests.cs" />
+    <Compile Include="Shared.FileSystem\FileImplTests.cs" />
+    <Compile Include="Shared.FileSystem\FileSystemImplTests.cs" />
+    <Compile Include="Shared.FileSystem\_Base_\ISample.cs" />
+    <Compile Include="Shared.FileSystem\_Base_\Sample.cs" />
+    <Compile Include="Shared.FunctionsCombinator\CalculatorTests.cs" />
+    <Compile Include="Shared.FunctionsCombinator\CombinatorTests.cs" />
+    <Compile Include="Shared.FunctionsCombinator\CombinatorFactoriesTests.cs" />
+    <Compile Include="Shared.FunctionsCombinator\DependencyResolverTests.cs" />
+    <Compile Include="Shared.FunctionsCombinator\PartsExtractorTests.cs" />
+    <Compile Include="Shared.FunctionsCombinator\ResultComposerTests.cs" />
+    <Compile Include="Shared.ModelReflection\HierarchyTests.cs" />
+    <Compile Include="Shared.ModelReflection\ModelEntityReflectorTests.cs" />
+    <Compile Include="Shared.ModelReflection\ModelEntryContainerTests.cs" />
+    <Compile Include="Shared.ModelReflection\ModelPropContainerTests.cs" />
+    <Compile Include="Shared.ModelReflection\ModelReflectorTests.cs" />
+    <Compile Include="Shared.Utils\AutoDisposableTests.cs" />
+    <Compile Include="Shared.Utils\StackExtensionsTests.cs" />
+    <Compile Include="Shared.Utils\StringExtensionsTests.cs" />
+    <Compile Include="Shared.Utils\TypeExtensionsTests.cs" />
+    <Compile Include="Shared.Utils\TypeNameFormatterTests.cs" />
+    <Compile Include="_Infrastructure_\IInfrastructureType.cs" />
+    <Compile Include="_Infrastructure_\InfrastructureModule.cs" />
+    <Compile Include="_Infrastructure_\InfrastructureType.cs" />
+    <Compile Include="_Infrastructure_\TypeSource.cs" />
+    <Compile Include="_IntegrationTests_\Integration_CalculatorTests.cs" />
+    <Compile Include="_IntegrationTests_\Integration_CombinatorTests.cs" />
+    <Compile Include="_IntegrationTests_\MyStringReader.cs" />
+    <Compile Include="_IntegrationTests_\GeneratorTests.cs" />
+    <Compile Include="_IntegrationTests_\MyStringReaderTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{80ae8da2-871d-4a5b-a591-01fb656b04fd}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shared.ModelReflection\ModelReflectorTests.VerifyReflectBatch.approved.txt" />
+    <Content Include="Shared.ModelReflection\ModelReflectorTests.VerifyReflectLedger.approved.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

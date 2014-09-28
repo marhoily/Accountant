@@ -1,0 +1,278 @@
+﻿[
+  {
+    "HasKey": true,
+    "Name": "Account",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public string Name { get; set; }",
+        "Initializer": "Name = value.Name",
+        "Finalizer": "Name = Name"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public string Description { get; set; }",
+        "Initializer": "Description = value.Description",
+        "Finalizer": "Description = Description"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public AccountOptions Options { get; set; }",
+        "Initializer": "Options = value.Options",
+        "Finalizer": "Options = Options"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public AccountModifiers Modifier { get; set; }",
+        "Initializer": "Modifier = value.Modifier",
+        "Finalizer": "Modifier = Modifier"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public DateTime LastRevisionDate { get; set; }",
+        "Initializer": "LastRevisionDate = value.LastRevisionDate",
+        "Finalizer": "LastRevisionDate = LastRevisionDate"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string Parent { get; set; }",
+        "Initializer": "Parent = value.Parent == null ? null : value.Parent.Name",
+        "Finalizer": "Parent = Parent == null ? null : context.AccountByKey[Parent]"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string PrimaryCurrency { get; set; }",
+        "Initializer": "PrimaryCurrency = value.PrimaryCurrency == null ? null : value.PrimaryCurrency.Name",
+        "Finalizer": "PrimaryCurrency = PrimaryCurrency == null ? null : context.CurrencyByKey[PrimaryCurrency]"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "AccountTotal",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public TotalData Total { get; set; }",
+        "Initializer": "Total = value.Total == null ? null : new TotalData(value.Total)",
+        "Finalizer": "Total = Total.Back(context)"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string Account { get; set; }",
+        "Initializer": "Account = value.Account == null ? null : value.Account.Name",
+        "Finalizer": "Account = Account == null ? null : context.AccountByKey[Account]"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "Batch",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public List<AccountTotalData> IngressBalance { get; set; }",
+        "Initializer": "IngressBalance = value.IngressBalance.Select(x => new AccountTotalData(x)).ToList()",
+        "Finalizer": "IngressBalance = new List<AccountTotal>(IngressBalance.Select(x => x.Back(context)))"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public Interval ReferenceInterval { get; set; }",
+        "Initializer": "ReferenceInterval = value.ReferenceInterval",
+        "Finalizer": "ReferenceInterval = ReferenceInterval"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public List<TransactionData> Transactions { get; set; }",
+        "Initializer": "Transactions = value.Transactions.Select(x => new TransactionData(x)).ToList()",
+        "Finalizer": "Transactions = new List<Transaction>(Transactions.Select(x => x.Back(context)))"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public List<ExchangeRateData> ExchangeRates { get; set; }",
+        "Initializer": "ExchangeRates = value.ExchangeRates.Select(x => new ExchangeRateData(x)).ToList()",
+        "Finalizer": "ExchangeRates = new List<ExchangeRate>(ExchangeRates.Select(x => x.Back(context)))"
+      }
+    ]
+  },
+  {
+    "HasKey": true,
+    "Name": "Currency",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public string Name { get; set; }",
+        "Initializer": "Name = value.Name",
+        "Finalizer": "Name = Name"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public string Symbol { get; set; }",
+        "Initializer": "Symbol = value.Symbol",
+        "Finalizer": "Symbol = Symbol"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public SymbolPosition SymbolPosition { get; set; }",
+        "Initializer": "SymbolPosition = value.SymbolPosition",
+        "Finalizer": "SymbolPosition = SymbolPosition"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public string Description { get; set; }",
+        "Initializer": "Description = value.Description",
+        "Finalizer": "Description = Description"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "EndPoint",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public MoneyData Amount { get; set; }",
+        "Initializer": "Amount = value.Amount == null ? null : new MoneyData(value.Amount)",
+        "Finalizer": "Amount = Amount.Back(context)"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string[] Accounts { get; set; }",
+        "Initializer": "Accounts = value.Accounts.Select(x => x.Name).ToArray()",
+        "Finalizer": "Accounts = Accounts.Select(x => context.AccountByKey[x]).ToList()"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "ExchangeRate",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public DateTime StartAt { get; set; }",
+        "Initializer": "StartAt = value.StartAt",
+        "Finalizer": "StartAt = StartAt"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public decimal Rate { get; set; }",
+        "Initializer": "Rate = value.Rate",
+        "Finalizer": "Rate = Rate"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public decimal Scale { get; set; }",
+        "Initializer": "Scale = value.Scale",
+        "Finalizer": "Scale = Scale"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public ExchangeRateSources Source { get; set; }",
+        "Initializer": "Source = value.Source",
+        "Finalizer": "Source = Source"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string CurrencyFrom { get; set; }",
+        "Initializer": "CurrencyFrom = value.CurrencyFrom == null ? null : value.CurrencyFrom.Name",
+        "Finalizer": "CurrencyFrom = CurrencyFrom == null ? null : context.CurrencyByKey[CurrencyFrom]"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string CurrencyTo { get; set; }",
+        "Initializer": "CurrencyTo = value.CurrencyTo == null ? null : value.CurrencyTo.Name",
+        "Finalizer": "CurrencyTo = CurrencyTo == null ? null : context.CurrencyByKey[CurrencyTo]"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "Money",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public decimal Amount { get; set; }",
+        "Initializer": "Amount = value.Amount",
+        "Finalizer": "Amount = Amount"
+      },
+      {
+        "IsNavigation": true,
+        "Definition": "public string Currency { get; set; }",
+        "Initializer": "Currency = value.Currency == null ? null : value.Currency.Name",
+        "Finalizer": "Currency = Currency == null ? null : context.CurrencyByKey[Currency]"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "Record",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public string Comment { get; set; }",
+        "Initializer": "Comment = value.Comment",
+        "Finalizer": "Comment = Comment"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public EndPointData Credit { get; set; }",
+        "Initializer": "Credit = value.Credit == null ? null : new EndPointData(value.Credit)",
+        "Finalizer": "Credit = Credit.Back(context)"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public EndPointData Debit { get; set; }",
+        "Initializer": "Debit = value.Debit == null ? null : new EndPointData(value.Debit)",
+        "Finalizer": "Debit = Debit.Back(context)"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "Total",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public List<MoneyData> Debit { get; set; }",
+        "Initializer": "Debit = value.Debit.Select(x => new MoneyData(x)).ToList()",
+        "Finalizer": "Debit = new MoneyBag(Debit.Select(x => x.Back(context)))"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public List<MoneyData> Credit { get; set; }",
+        "Initializer": "Credit = value.Credit.Select(x => new MoneyData(x)).ToList()",
+        "Finalizer": "Credit = new MoneyBag(Credit.Select(x => x.Back(context)))"
+      }
+    ]
+  },
+  {
+    "HasKey": false,
+    "Name": "Transaction",
+    "Properties": [
+      {
+        "IsNavigation": false,
+        "Definition": "public string Comment { get; set; }",
+        "Initializer": "Comment = value.Comment",
+        "Finalizer": "Comment = Comment"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public DateTime Timestamp { get; set; }",
+        "Initializer": "Timestamp = value.Timestamp",
+        "Finalizer": "Timestamp = Timestamp"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public List<RecordData> Entries { get; set; }",
+        "Initializer": "Entries = value.Entries.Select(x => new RecordData(x)).ToList()",
+        "Finalizer": "Entries = new List<Record>(Entries.Select(x => x.Back(context)))"
+      },
+      {
+        "IsNavigation": false,
+        "Definition": "public TransactionType TransactionType { get; set; }",
+        "Initializer": "TransactionType = value.TransactionType",
+        "Finalizer": "TransactionType = TransactionType"
+      }
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-using NewModel.Shared.Annotations;
+ï»¿using NewModel.Shared.Annotations;
 
 namespace NewModel.Accounting.Core
 {
@@ -17,21 +17,21 @@ namespace NewModel.Accounting.Core
         public static readonly Currency Eur = new Currency
 	        {
 	            Name = "EUR",
-	            Symbol = "ˆ",
+                Symbol = "â‚¬",
 	            SymbolPosition = SymbolPosition.Prepend,
 	            Description = "Euro",
 	        };
         public static readonly Currency Byr = new Currency
 	        {
 	            Name = "BYR",
-	            Symbol = "ð.",
+	            Symbol = "Ñ€.",
 	            SymbolPosition = SymbolPosition.Append,
 	            Description = "Belorussian ruble",
 	        };
 	    public static readonly Currency Rur = new Currency
 	        {
 	            Name = "RUR",
-	            Symbol = "ðð.",
+	            Symbol = "Ñ€Ñ€.",
 	            SymbolPosition = SymbolPosition.Append,
 	            Description = "Russian ruble",
 	        };
