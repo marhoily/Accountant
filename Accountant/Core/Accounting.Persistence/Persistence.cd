@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NewModel.Accounting.Persistence.Batch">
+    <Position X="3.75" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AADAQAAAAAAAAAABAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\DataStructures\Batch.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="IngressBalance" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.BatchDescriptor">
+    <Position X="3.75" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\DataStructures\BatchDescriptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.FileLoader">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="mDirectory" Hidden="true" />
+      <Field Name="mReader" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAABAAAAAABAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Accounting.Persistence\FileLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.FileSaver">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="mDirectory" Hidden="true" />
+      <Field Name="mWriter" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Accounting.Persistence\FileSaver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.Ledger">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAIAAAAAAAAAAAACAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\DataStructures\Ledger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Batches" />
+      <Property Name="LoadedBatches" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.LedgerPersistence">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\LedgerPersistence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.LedgerOperations">
+    <Position X="0.5" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\LedgerOperations.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mBatchesOperations" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Calculation.AccountTotal">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Accounting.Calculation\Total.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.BatchesOperations" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="9.75" Width="1.75" />
+    <Members>
+      <Method Name="BatchesOperations" Hidden="true" />
+      <Field Name="mLedger" Hidden="true" />
+      <Field Name="mLoader" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAwEQAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\BatchesOperations.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.TransactionRegistrant">
+    <Position X="2.75" Y="9.75" Width="2.25" />
+    <Members>
+      <Field Name="mApplicator" Hidden="true" />
+      <Field Name="mBatchOperations" Hidden="true" />
+      <Field Name="mTotalsCalculator" Hidden="true" />
+      <Method Name="TransactionRegistrant" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAIAAAAAAAAAAAAgAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\TransactionRegistrant.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NewModel.Accounting.Persistence.BatchOperations">
+    <Position X="5.5" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Accounting.Persistence\BatchOperations.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NewModel.Accounting.Calculation.BalanceCalculator" Collapsed="true">
+    <Position X="8.25" Y="9.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Calculation\BalanceCalculator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mCalculator" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NewModel.Accounting.Calculation.Calculator">
+    <Position X="12.25" Y="9.75" Width="2.25" />
+    <Members>
+      <Method Name="AnyAccountIs" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>hAAAAAAgAAAAACAAAAgAAAAAMABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Calculation\Calculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NewModel.Accounting.Calculation.IBalanceCalculator">
+    <Position X="8.25" Y="8.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Calculation\BalanceCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NewModel.Accounting.Persistence.IBatchesOperations" Collapsed="true">
+    <Position X="8.25" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAQAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\Interfaces\IBatchesOperations.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NewModel.Accounting.Persistence.ITotalExtractor" Collapsed="true">
+    <Position X="4.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\LedgerOperations.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NewModel.Accounting.Persistence.ITransactionRegistrant">
+    <Position X="10.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Persistence\Interfaces\ITransactionRegistrant.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +43,146 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Accounting.Calculation\BalanceCalculator.cs" />
+    <Compile Include="Accounting.Calculation\Calculator.cs" />
+    <Compile Include="Accounting.Calculation\Interval.cs" />
+    <Compile Include="Accounting.Calculation\IntervalBalance.cs" />
+    <Compile Include="Accounting.Calculation\MoneyBag.cs" />
+    <Compile Include="Accounting.Calculation\MoneyExtensions.cs" />
+    <Compile Include="Accounting.Calculation\Total.cs" />
+    <Compile Include="Accounting.Calculation\TransactionsBalance.cs" />
+    <Compile Include="Accounting.Core\Account.cs" />
+    <Compile Include="Accounting.Core\AccountModifiers.cs" />
+    <Compile Include="Accounting.Core\AccountOptions.cs" />
+    <Compile Include="Accounting.Core\Currency.cs" />
+    <Compile Include="Accounting.Core\EndPoint.cs" />
+    <Compile Include="Accounting.Core\ExchangeRate.cs" />
+    <Compile Include="Accounting.Core\ExchangeRateSources.cs" />
+    <Compile Include="Accounting.Core\Money.cs" />
+    <Compile Include="Accounting.Core\Record.cs" />
+    <Compile Include="Accounting.Core\SymbolPosition.cs" />
+    <Compile Include="Accounting.Core\Transaction.cs" />
+    <Compile Include="Accounting.Core\TransactionType.cs" />
+    <Compile Include="Accounting.Persistence\BatchesOperations.cs" />
+    <Compile Include="Accounting.Persistence\BatchOperations.cs" />
+    <Compile Include="Accounting.Persistence\DataStructures\Batch.cs" />
+    <Compile Include="Accounting.Persistence\DataStructures\BatchDescriptor.cs" />
+    <Compile Include="Accounting.Persistence\DataStructures\Ledger.cs" />
+    <Compile Include="Accounting.Persistence\FileLoader.cs" />
+    <Compile Include="Accounting.Persistence\FileSaver.cs" />
+    <Compile Include="Accounting.Persistence\Interfaces\IBatchesOperations.cs" />
+    <Compile Include="Accounting.Persistence\Interfaces\IBatchLoader.cs" />
+    <Compile Include="Accounting.Persistence\Interfaces\IBatchOperations.cs" />
+    <Compile Include="Accounting.Persistence\Interfaces\ITotalsCalculator.cs" />
+    <Compile Include="Accounting.Persistence\Interfaces\ITransactionRegistrant.cs" />
+    <Compile Include="Accounting.Persistence\LedgerOperations.cs" />
+    <Compile Include="Accounting.Persistence\LedgerPersistence.cs" />
+    <Compile Include="Accounting.Persistence\Loader.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Loader.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting.Persistence\TransactionRegistrant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared.Annotations\AllowedInheritanceOption.cs" />
+    <Compile Include="Shared.Annotations\DataOnlyObjectAttribute.cs" />
+    <Compile Include="Shared.Annotations\DraftAttribute.cs" />
+    <Compile Include="Shared.Annotations\EntityFrameworkSpecificAttribute.cs" />
+    <Compile Include="Shared.Annotations\ExternalApiServiceAttribute.cs" />
+    <Compile Include="Shared.Annotations\ForDocumentationOnly.cs" />
+    <Compile Include="Shared.Annotations\InternalAttribute.cs" />
+    <Compile Include="Shared.Annotations\MarkerClassAttribute.cs" />
+    <Compile Include="Shared.Annotations\MeansIntegrationTestNeededAttribute.cs" />
+    <Compile Include="Shared.Annotations\MeansNoUnitTestsNeededAttribute.cs" />
+    <Compile Include="Shared.Annotations\MvcUntestableAttribute.cs" />
+    <Compile Include="Shared.Annotations\NamespaceClassAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcActionAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcAreaAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcControllerAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcMasterAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcModelTypeAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcPartialViewAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcSupressViewErrorAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcTemplateAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AspMvcViewAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AssertionConditionAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AssertionConditionType.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\AssertionMethodAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\BaseTypeRequiredAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\CanBeNullAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\CannotApplyEqualityOperatorAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\ImplicitUseKindFlags.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\ImplicitUseTargetFlags.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\InstantHandleAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\InvokerParameterNameAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\LocalizationRequiredAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\MeansImplicitUseAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\NotNullAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\PathReferenceAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\PublicAPIAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\PureAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\RazorSectionAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\StringFormatMethodAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\TerminatesProgramAttribute.cs" />
+    <Compile Include="Shared.Annotations\ReSharper\UsedImplicitlyAttribute.cs" />
+    <Compile Include="Shared.Annotations\SerializableMemberAttribute.cs" />
+    <Compile Include="Shared.Annotations\TestExtensionsAttribute.cs" />
+    <Compile Include="Shared.Annotations\UnityUntestableAttribute.cs" />
+    <Compile Include="Shared.Annotations\VirtualAttribute.cs" />
+    <Compile Include="Shared.Annotations\WebApiSpecificAttribute.cs" />
+    <Compile Include="Shared.Annotations\WpfSpecificAttribute.cs" />
+    <Compile Include="Shared.Attributes\CompoundAttribute.cs" />
+    <Compile Include="Shared.Attributes\NavigationAttribute.cs" />
+    <Compile Include="Shared.FileSystem\DirectoryImpl.cs" />
+    <Compile Include="Shared.FileSystem\FileImpl.cs" />
+    <Compile Include="Shared.FileSystem\FileSystemImpl.cs" />
+    <Compile Include="Shared.FileSystem\IDirectory.cs" />
+    <Compile Include="Shared.FileSystem\IFile.cs" />
+    <Compile Include="Shared.FileSystem\IFileSystem.cs" />
+    <Compile Include="Shared.FunctionsCombinator\Calculator.cs" />
+    <Compile Include="Shared.FunctionsCombinator\Combinator.cs" />
+    <Compile Include="Shared.FunctionsCombinator\CombinatorFactories.cs" />
+    <Compile Include="Shared.FunctionsCombinator\DependencyResolver.cs" />
+    <Compile Include="Shared.FunctionsCombinator\ICalculator.cs" />
+    <Compile Include="Shared.FunctionsCombinator\ICombinatorFactories.cs" />
+    <Compile Include="Shared.FunctionsCombinator\IDependencyResolver.cs" />
+    <Compile Include="Shared.FunctionsCombinator\IPartsExtractor.cs" />
+    <Compile Include="Shared.FunctionsCombinator\IResultComposer.cs" />
+    <Compile Include="Shared.FunctionsCombinator\Part.cs" />
+    <Compile Include="Shared.FunctionsCombinator\PartsExtractor.cs" />
+    <Compile Include="Shared.FunctionsCombinator\PlaceholderAttribute.cs" />
+    <Compile Include="Shared.FunctionsCombinator\ResultComposer.cs" />
+    <Compile Include="Shared.ModelReflection\ModelEntityReflector.cs" />
+    <Compile Include="Shared.ModelReflection\ModelEntry.cs" />
+    <Compile Include="Shared.ModelReflection\ModelEntryArgs.cs" />
+    <Compile Include="Shared.ModelReflection\ModelEntryContainer.cs" />
+    <Compile Include="Shared.ModelReflection\ModelProp.cs" />
+    <Compile Include="Shared.ModelReflection\ModelPropArgs.cs" />
+    <Compile Include="Shared.ModelReflection\ModelPropContainer.cs" />
+    <Compile Include="Shared.ModelReflection\ModelReflector.cs" />
+    <Compile Include="Shared.Utils\Applicator.cs" />
+    <Compile Include="Shared.Utils\AutoDisposable.cs" />
+    <Compile Include="Shared.Utils\EnumerableExtensions.cs" />
+    <Compile Include="Shared.Utils\Hierarchy.cs" />
+    <Compile Include="Shared.Utils\IApplicator.cs" />
+    <Compile Include="Shared.Utils\ITypeNameFormatter.cs" />
+    <Compile Include="Shared.Utils\StackExtensions.cs" />
+    <Compile Include="Shared.Utils\StringExtensions.cs" />
+    <Compile Include="Shared.Utils\TypeExtensions.cs" />
+    <Compile Include="Shared.Utils\TypeNameFormatter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Accounting.Calculation\Caclulations.cd" />
+    <None Include="Accounting.Core\Account.cd" />
+    <None Include="Accounting.Persistence\Loader.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Loader.designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accounting.Persistence\Persistence.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

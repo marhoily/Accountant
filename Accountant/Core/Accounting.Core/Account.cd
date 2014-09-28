@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NewModel.Accounting.Core.Account">
+    <Position X="6.5" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAgEAAiACAEAACCQAQAAAACAAAAAAGwAABAAAA=</HashCode>
+      <FileName>Accounting.Core\Account.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Options" />
+      <Property Name="Modifier" />
+      <Property Name="Parent" />
+      <Property Name="PrimaryCurrency" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Core.Currency">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAgIAAAIAAAAAQAAAAEAAAAAAAAAAEACAI=</HashCode>
+      <FileName>Accounting.Core\Currency.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SymbolPosition" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Core.EndPoint">
+    <Position X="3.75" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAgACAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\EndPoint.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Accounts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Core.ExchangeRate">
+    <Position X="12.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAQAgAAAAAAAAIAAAAAAAAAEgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\ExchangeRate.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Source" />
+      <Property Name="CurrencyFrom" />
+      <Property Name="CurrencyTo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Core.Money">
+    <Position X="9.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAEAAACACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\Money.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Currency" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Core.Record">
+    <Position X="0.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAFAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\Record.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Credit" />
+      <Property Name="Debit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewModel.Accounting.Core.Transaction">
+    <Position X="0.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAACAEAAACAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\Transaction.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TransactionType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="NewModel.Accounting.Core.AccountModifiers">
+    <Position X="2.75" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Accounting.Core\AccountModifiers.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NewModel.Accounting.Core.AccountOptions">
+    <Position X="3.25" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAA=</HashCode>
+      <FileName>Accounting.Core\AccountOptions.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NewModel.Accounting.Core.ExchangeRateSources">
+    <Position X="15" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\ExchangeRateSources.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NewModel.Accounting.Core.SymbolPosition">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Accounting.Core\SymbolPosition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NewModel.Accounting.Core.TransactionType">
+    <Position X="1" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAACAAAAAAAEAQAAAAACAAAAAAAQAAAAABA=</HashCode>
+      <FileName>Accounting.Core\TransactionType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
